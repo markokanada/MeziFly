@@ -4,8 +4,7 @@ import sys
 import pygame
 from pygame.locals import *
 from pyvidplayer import Video
- 
-
+from pygame import mixer
 
 # All the Game Variables
 window_width = 600
@@ -13,6 +12,9 @@ window_height = 499
   
 # set height and width of window
 window = pygame.display.set_mode((window_width, window_height))
+pygame.display.set_caption('MeziFly - By Team MF')
+logo = pygame.image.load('images/logo.png')
+pygame.display.set_icon(logo)
 elevation = window_height * 0.8
 game_images = {}
 framepersecond = 32
@@ -21,6 +23,7 @@ background_starter_image = 'images/starter-background.jpg'
 background_image = 'images/background.jpg'
 birdplayer_image = 'images/mezi.png'
 sealevel_image = 'images/base.jfif'
+
 
  #Intro
 
@@ -33,11 +36,16 @@ def intro():
         vid.draw(window,(0,0))
         pygame.display.update()
         for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == KEYDOWN and (event.key == K_SPACE):
                 vid.close()
                 state = False
   
 def flappygame():
+    pygame.mixer
+    mixer.init()
+    mixer.music.set_volume(0.7)
+    mixer.music.load('test.waw')
+    mixer.music.play(-1)
     your_score = 0
     horizontal = int(window_width/5)
     vertical = int(window_width/2)

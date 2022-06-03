@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\handtracking"
+    "\\handtracking",
+    "\\handtracking\\autopy"
   ],
-  "SelectedNode": "\\main.py",
+  "SelectedNode": "\\handtracking\\HandTrackingModule.py",
   "PreviewInSolutionExplorer": false
 }
