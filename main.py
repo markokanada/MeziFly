@@ -27,6 +27,8 @@ sealevel_image = 'images/base.jfif'
 
  #Intro
 
+mixer.init()
+
 vid = Video("Videos/intro.mp4")
 vid.set_size((600,499))
 
@@ -41,11 +43,6 @@ def intro():
                 state = False
   
 def flappygame():
-    pygame.mixer
-    mixer.init()
-    mixer.music.set_volume(0.7)
-    mixer.music.load('test.waw')
-    mixer.music.play(-1)
     your_score = 0
     horizontal = int(window_width/5)
     vertical = int(window_width/2)
@@ -165,7 +162,7 @@ def flappygame():
         # Refreshing the game window and displaying the score.
         pygame.display.update()
         framepersecond_clock.tick(framepersecond)
-  
+
   
 def isGameOver(horizontal, vertical, up_pipes, down_pipes):
     if vertical > elevation - 25 or vertical < 0:
@@ -202,6 +199,11 @@ def createPipe():
     return pipe
   
 intro()
+pygame.mixer
+mixer.music.set_volume(0.7)
+mixer.music.load('test.wav')
+mixer.music.play(-1)
+
 # program where the game starts
 if __name__ == "__main__":
   
@@ -241,7 +243,7 @@ if __name__ == "__main__":
   
     print("Udvozlunk a MeziFlyban")
     print("Kez felfele emelesevel indithato el a jatek")
-  
+
 
     # Here starts the main game
 
@@ -266,7 +268,8 @@ if __name__ == "__main__":
                 # up key, start the game for them
                 elif event.type == KEYDOWN and (event.key == K_SPACE or\
                                                 event.key == K_UP):
-                 
+
+                    
                     flappygame()
   
                 # if user doesn't press anykey Nothing happen
