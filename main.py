@@ -1,6 +1,7 @@
 # Import module
 import random
 import sys
+import os
 import pygame
 from pygame.locals import *
 from pyvidplayer import Video
@@ -201,8 +202,12 @@ def createPipe():
 intro()
 pygame.mixer
 mixer.music.set_volume(0.7)
-mixer.music.load('test.wav')
-mixer.music.play(-1)
+mixer.music.load('music/1.mp3')
+music = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+for i in range(len(music)):
+    mixer.music.queue(('music/'+str(music[i])+'.mp3'))
+   
+mixer.music.play()
 
 # program where the game starts
 if __name__ == "__main__":
@@ -271,6 +276,17 @@ if __name__ == "__main__":
 
                     
                     flappygame()
+                #status = 0
+                #if os.path.exists('handtracking2/status.txt'):
+                    #print("in")
+                    #file = open("handtracking2/status.txt",'r',encoding="UTF-8")
+                    #for sor in file:
+                        #sor.strip()
+                        #status = sor
+                    #file.close()
+                #print(status)
+                #if status == "True":
+                    #flappygame()
   
                 # if user doesn't press anykey Nothing happen
                 else:
