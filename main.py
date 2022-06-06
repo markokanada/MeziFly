@@ -1,3 +1,4 @@
+#MeziFly Game - Before start, if you want to use the handtracking system please start, the 'handtracker.py' (you can find it in the 'handtracking' directory) script, else you can play the game with pressing SPACE button to jump.
 # Import module
 import random
 import sys
@@ -87,6 +88,20 @@ def flappygame():
                 pygame.quit()
                 sys.exit()
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
+                if vertical > 0:
+                    bird_velocity_y = bird_flap_velocity
+                    bird_flapped = True
+            status = 0
+            status_data = list()
+            if os.path.exists('handtracking/status.txt'):
+                file = open("handtracking/status.txt",'r',encoding="UTF-8")
+                for sor in file:
+                    sor.strip()
+                    status_data.append(sor)
+                file.close()
+            if len(status_data) > 0:
+                status = status_data[-1]
+            if int(status) > 0:
                 if vertical > 0:
                     bird_velocity_y = bird_flap_velocity
                     bird_flapped = True
@@ -271,24 +286,24 @@ if __name__ == "__main__":
                
                 # If the user presses space or
                 # up key, start the game for them
-                elif event.type == KEYDOWN and (event.key == K_SPACE or\
+                if event.type == KEYDOWN and (event.key == K_SPACE or\
                                                 event.key == K_UP):
 
-                    
                     flappygame()
-                #status = 0
-                #if os.path.exists('handtracking2/status.txt'):
-                    #print("in")
-                    #file = open("handtracking2/status.txt",'r',encoding="UTF-8")
-                    #for sor in file:
-                        #sor.strip()
-                        #status = sor
-                    #file.close()
-                #print(status)
-                #if status == "True":
-                    #flappygame()
-  
-                # if user doesn't press anykey Nothing happen
+                
+                status = 0
+                status_data = list()
+                if os.path.exists('handtracking/status.txt'):
+                    file = open("handtracking/status.txt",'r',encoding="UTF-8")
+                    for sor in file:
+                        sor.strip()
+                        status_data.append(sor)
+                    file.close()
+                if len(status_data) > 0:
+                    status = status_data[-1]
+                if int(status) > 0:
+                    flappygame()
+                    # if user doesn't press anykey Nothing happen
                 else:
                     window.blit(game_images['starter_background'], (0, 0))
                     window.blit(game_images['flappybird'],
