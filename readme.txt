@@ -1,0 +1,3 @@
+A program alapvetően futtatáskor (main.py) irányítható SPACE gomb lenyomásával (reptetés), vagy amennyiben a handtracking (handtracking.py) mellette fut, akkor lehetséges kézmozdulatokkal reptetni (előfordulhatnak delayből adódó problémák, lassabb adatátvitel esetén. Teszt video a Slidon látható(https://tinyurl.com/4kfpy2t3 ),ahol SSD-n megfelelő körülmények között lett futtatva.) Csak saját felelősségre, a nagy IOWR miatt.
+
+Bármilyen esetlegesen felmerülő kérdés esetén kérem keressen fel minket a contact@buborek-marko.tk e-mail címen.
